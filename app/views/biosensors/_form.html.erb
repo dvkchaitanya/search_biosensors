@@ -1,0 +1,63 @@
+<%= form_for(@biosensor) do |f| %>
+  <% if @biosensor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@biosensor.errors.count, "error") %> prohibited this biosensor from being saved:</h2>
+
+      <ul>
+      <% @biosensor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  
+  <div class="field">
+    <%= f.label :biosensor_id  %><br />
+	<%= f.text_field :biosensor %>
+
+  </div>
+  <div class="field">
+    <%= f.label :sensor_type %><br />
+	<%=f.select :sensor_type_id, options_for_select(SensorType.all.map{|sensorType|[sensorType.name,sensorType.id]}) %>
+
+  </div>
+
+  <div class="field">
+    <%= f.label :imaging_purpose %><br />
+	<%= f.select :purpose_of_imaging_id,options_for_select(PurposeOfImaging.all.map{|purpose|[purpose.name,purpose.id]}) %>
+
+  </div>
+  <div class="field">
+    <%= f.label :substrate %><br />
+	<%= f.select :substrate_id, options_for_select(Substrate.all.map{|substrate|[substrate.name,substrate.id]}) %>
+
+  </div>
+  <div class="field">
+    <%= f.label :lab_name_id%><br />
+
+	<%= f.select :lab_name_id, options_for_select(LabName.all.map{|labName|[labName.name,labName.id]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :analysis_technique_name %><br />
+
+	<%= f.select :analysis_technique_id, options_for_select(AnalysisTechnique.all.map{|analysisTechnique|[analysisTechnique.name,analysisTechnique.id]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :host_type %><br />
+	<%= f.select :host_type_id, options_for_select(HostType.all.map{|hostType|[hostType.name,hostType.id]}) %>
+  </div>
+  <div class="field">
+    <%= f.label :cell_or_organism %><br />
+
+	<%= f.select :cell_or_organism_id, options_for_select(CellOrOrganism.all.map{|cellOrOrg|[cellOrOrg.name,cellOrOrg.id]}) %>
+  </div>
+  <div class="field">
+		  <%= f.label :score %> <br/>
+		  <%= f.text_field :score %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

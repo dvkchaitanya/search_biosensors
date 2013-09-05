@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p><b>biosensor name</b>
+<%= @biosensor.biosensor %></p>
+
+<p>
+  <b>Sensor type:</b>
+  <%= SensorType.find(@biosensor.sensor_type_id).name %>
+  <%# SensorType.biosensors[] %>
+
+</p>
+
+<p>
+  <b>Imaging purpose:</b>
+  <%= PurposeOfImaging.find(@biosensor.purpose_of_imaging_id).name %>
+</p>
+
+<p>
+  <b>Substrate:</b>
+  <%= Substrate.find(@biosensor.substrate_id).name %>
+</p>
+
+<p>
+  <b>Lab name:</b>
+  <%= LabName.find(@biosensor.lab_name_id).name %>
+</p>
+
+<p>
+  <b>Analysis technique:</b>
+  <%= AnalysisTechnique.find(@biosensor.analysis_technique_id).name %>
+</p>
+
+<p>
+  <b>Host type:</b>
+  <%= HostType.find(@biosensor.host_type_id).name %>
+</p>
+
+<p>
+  <b>Cell or organism:</b>
+  <%=CellOrOrganism.find(@biosensor.cell_or_organism_id).name %>
+</p>
+
+<p>Score:
+<%= @biosensor.score %>
+</p>
+
+<%= link_to 'Edit', edit_biosensor_path(@biosensor) %> |
+<%= link_to 'Back', biosensors_path %>

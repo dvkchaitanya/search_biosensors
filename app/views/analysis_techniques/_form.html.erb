@@ -1,0 +1,21 @@
+<%= form_for(@analysis_technique) do |f| %>
+  <% if @analysis_technique.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@analysis_technique.errors.count, "error") %> prohibited this analysis_technique from being saved:</h2>
+
+      <ul>
+      <% @analysis_technique.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

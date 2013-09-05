@@ -1,0 +1,23 @@
+<h1>Listing substrates</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @substrates.each do |substrate| %>
+  <tr>
+    <td><%= substrate.name %></td>
+    <td><%= link_to 'Show', substrate %></td>
+    <td><%= link_to 'Edit', edit_substrate_path(substrate) %></td>
+    <td><%= link_to 'Destroy', substrate, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Substrate', new_substrate_path %>

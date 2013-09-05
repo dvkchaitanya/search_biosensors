@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  sensor_type: MyString
+  imaging_purpose: MyString
+  substrate: MyString
+  lab_name: MyString
+  analysis_technique: MyString
+  host_type: MyString
+  cell_or_organism: MyString
+
+two:
+  sensor_type: MyString
+  imaging_purpose: MyString
+  substrate: MyString
+  lab_name: MyString
+  analysis_technique: MyString
+  host_type: MyString
+  cell_or_organism: MyString

@@ -1,0 +1,2 @@
+module AnalysisTechniquesHelper
+end

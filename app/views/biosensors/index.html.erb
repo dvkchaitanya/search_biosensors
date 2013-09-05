@@ -1,0 +1,41 @@
+<h1>Listing biosensors</h1>
+
+ <%= form_tag biosensors_path, :method => 'get' do %>
+ 	<%= text_field_tag :search_param  %>	
+	<%= submit_tag "search", :name => nil %>
+ <% end %>
+
+<table>
+  <tr>
+    <th>Biosensor Name</th>
+    <th>Sensor type</th>
+    <th>Imaging purpose</th>
+    <th>Substrate</th>
+    <th>Analysis technique</th>
+    <th>Host type</th>
+    <th>Cell or organism</th>
+    <th>lab name</th>
+	<th>Score</th>
+  </tr>
+
+<% @biosensors.each do |biosensor| %>
+	<%# biosensor.inspect %>
+	<td> <%=  biosensor.biosensor%> </td>
+	<td><%= SensorType.find( biosensor.sensor_type_id).name%></td>
+    <td><%= PurposeOfImaging.find( biosensor.purpose_of_imaging_id).name%></td>
+    <td><%=  Substrate.find( biosensor.substrate_id).name%></td>
+    <td><%=  AnalysisTechnique.find( biosensor.analysis_technique_id).name %></td>
+    <td><%=  HostType.find( biosensor.host_type_id).name%></td>
+    <td><%= CellOrOrganism.find( biosensor.cell_or_organism_id).name%></td>
+	<td><%= LabName.find(biosensor.lab_name_id).name %></td>
+	<td><%= biosensor.score %></td>
+    <td><%= link_to 'Show', biosensor %></td>
+    <td><%= link_to 'Edit', edit_biosensor_path(biosensor) %></td>
+    <td><%= link_to 'Destroy', biosensor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Biosensor', new_biosensor_path %>

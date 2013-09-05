@@ -1,0 +1,31 @@
+This application is a simple Rails web application to  create searches  and perform sort based on each columns. Multiple searches can be created and will be stored in database, which can be retreived later. 
+
+Initially it is tried to perform search operations on biosensors model itself and later on moved search operation to Search entity.
+
+Search model is created using Nifty generator. The use of nifty generator is that it is possible to specify the actions that are needed while creating the generator itself.
+
+While building the application, I understood the importance of has-many and belongs to relationship in rails.
+
+Using has many and belongs to relationship make, we will have the ability to access the related model from one model of a one to many relationship companions through other model. 
+
+Suppose that I have a lab id and multiple biosensors associated with it. To make a has many relationship, we should make a following arrangement such that biosensor model should have lab_name_id as one attribute of its model. 
+
+The following list of advantages will be provided. 
+we can access associated biosensors using the method: Labname.find(2).biosensors. Similarly to retreive the  associated lab_name_id of biosensor, it is only needed as Biosensor.find(4).lab_name.name, where lab_name is the model name. thus we can access each others associations.
+
+It is also learnt that how to create select box and text field from a collection. In select box, if we want to submit a value to model two methods are there. one is using f.model_attribute and second method is to specify the model seperately as another parameter to select box. last two parameters represent id and value columns, last but second parameter is the model whose id and value pairs are to be passed and displayed.
+
+Another important understanding is how to render partials. By default partials for each view will be in its respective category. For example, in the current scenario, We have views for biosensor, lab, substrates, searches, etc.  In every view category, there will be one partial with name _form. 
+
+Syntax to render partials as follows. render :partial => biosensors. Now when we are using the collection of a model then it will render the partial biosensor. another parameter to render partial is :collection. Name of the partial can also be set and used for rendering of any collection. 
+
+It is also possible to use switch case in view layer (.erb file). 
+
+One thing to remember in rails (or in case any mvc framework) is that the variables that are available in controller are available in corresponding view. 
+
+Some of the new array methods in ruby are learnt, which are array.include? to find if the given value is existing in the array or not and use ternary operator according to given requirement.
+
+In rails to sort any partial, it is of no use to change the sql associated with the partial. we should use sort_by |c|{c.biosensor} 
+
+
+Dont waste much of time searching for vim plugins. Start Using less number of plugins and do more typing. Gradually increase number of plugins. Happy vimming !!!  

@@ -1,0 +1,24 @@
+<% title "Search" %>
+
+<p>
+  <strong>Search term biosensor:</strong>
+  <%= @search.biosensor_name %>
+  
+  <strong>Search term lab_name:</strong>
+  <%= LabName.find(@search.lab_name_ent).name %>
+  <table>
+		 <tr>
+			 <td> <%= link_to "Biosensor name",  :col_name => "biosensor" %> </td>
+			 <td><%= link_to "sensor type name", :col_name=>"sensor_type"%></td>
+			 <td><%= link_to "Imaging purpose", :col_name =>"imaging"%></td>
+		  <td><%= link_to "lab name" %></td>
+		  <td><%= link_to "score", :col_name => "score" %></td>
+		 <tr>
+	  <% case @col_name
+		  when "biosensor" %><%= render :partial=>@biosensors_li.sort_by{|b|b.biosensor} %>
+		  <% when "sensor_type" %><%= render :partial=>@biosensors_li.sort_by{|b|b.sensor_type.name} %>
+		  <% when "imaging" %><%=render :partial=> @biosensors_li.sort_by{|b|b.purpose_of_imaging.name} %>
+		  <% when "score" %><%= render :partial=> @biosensors_li.sort_by{|b|b.score} %>
+	  <% end %>
+	</table>
+</p>

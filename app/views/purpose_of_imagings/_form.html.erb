@@ -1,0 +1,21 @@
+<%= form_for(@purpose_of_imaging) do |f| %>
+  <% if @purpose_of_imaging.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@purpose_of_imaging.errors.count, "error") %> prohibited this purpose_of_imaging from being saved:</h2>
+
+      <ul>
+      <% @purpose_of_imaging.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

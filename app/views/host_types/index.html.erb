@@ -1,0 +1,23 @@
+<h1>Listing host_types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @host_types.each do |host_type| %>
+  <tr>
+    <td><%= host_type.name %></td>
+    <td><%= link_to 'Show', host_type %></td>
+    <td><%= link_to 'Edit', edit_host_type_path(host_type) %></td>
+    <td><%= link_to 'Destroy', host_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Host type', new_host_type_path %>

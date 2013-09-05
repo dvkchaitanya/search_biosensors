@@ -1,0 +1,23 @@
+<h1>Listing purpose_of_imagings</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @purpose_of_imagings.each do |purpose_of_imaging| %>
+  <tr>
+    <td><%= purpose_of_imaging.name %></td>
+    <td><%= link_to 'Show', purpose_of_imaging %></td>
+    <td><%= link_to 'Edit', edit_purpose_of_imaging_path(purpose_of_imaging) %></td>
+    <td><%= link_to 'Destroy', purpose_of_imaging, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Purpose of imaging', new_purpose_of_imaging_path %>

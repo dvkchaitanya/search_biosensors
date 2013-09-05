@@ -1,0 +1,15 @@
+<% title "New Search" %>
+
+<%= form_for @search do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :biosensor_name %><br />
+    <%= f.text_field :biosensor_name %>
+
+    </p>
+<p><%= f.label :lab_name %></p>
+<p><%= collection_select(:search, :lab_name_ent, LabName.all, :id, :name) %></p>
+  <p><%= f.submit %></p>
+<% end %>
+
+
